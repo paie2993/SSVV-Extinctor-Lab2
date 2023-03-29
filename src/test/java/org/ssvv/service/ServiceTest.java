@@ -74,8 +74,50 @@ public class ServiceTest {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // BVA
-    // 109, 110  -> invalid
-    // 111, 112  -> valid
-    // 936, 937  -> valid
-    // 938, 939  -> invalid
+    // 110  -> invalid
+    // 111  -> valid
+    // 937  -> valid
+    // 938  -> invalid
+
+    @Test
+    public void testSaveStudent_group_110() {
+        final var result = service.saveStudent("id", "name", 110, "email@email.com", "Costel");
+
+        Assertions.assertNull(result);
+    }
+
+    @Test
+    public void testSaveStudent_group_111() {
+        final var result = service.saveStudent("id", "name", 111, "email@email.com", "Costel");
+
+        Assertions.assertEquals(111, result.getGrupa());
+    }
+
+    @Test
+    public void testSaveStudent_group_937() {
+        final var result = service.saveStudent("id", "name", 937, "email@email.com", "Costel");
+
+        Assertions.assertEquals(937, result.getGrupa());
+    }
+
+    @Test
+    public void testSaveStudent_group_938() {
+        final var result = service.saveStudent("id", "name", 938, "email@email.com", "Costel");
+
+        Assertions.assertNull(result);
+    }
+
+    @Test
+    public void testSaveStudent_id_length_1() {
+        final var result = service.saveStudent("a", "name", 500, "email@email.com", "Costel");
+
+        Assertions.assertEquals("a", result.getID());
+    }
+
+    @Test
+    public void testSaveStudent_name_length_1() {
+        final var result = service.saveStudent("id", " ", 500, "email@email.com", "Costel");
+
+        Assertions.assertEquals(" ", result.getNume());
+    }
 }
