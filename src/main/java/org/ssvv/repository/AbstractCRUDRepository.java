@@ -38,10 +38,7 @@ public abstract class AbstractCRUDRepository<ID, E extends HasID<ID>> implements
     {
         try {
             validator.validate(entity);
-            final var mapEntity = entities.putIfAbsent(entity.getID(), entity);
-            if (mapEntity != null) {
-                return null;
-            }
+            entities.put(entity.getID(), entity);
             return entity;
         }
         catch (ValidationException ve) {

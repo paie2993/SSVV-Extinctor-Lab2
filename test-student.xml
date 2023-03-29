@@ -2,6 +2,6 @@
 <Entitati>
     <student ID="id">
         <Nume>name</Nume>
-        <Grupa>200</Grupa>
+        <Grupa>500</Grupa>
     </student>
 </Entitati>
