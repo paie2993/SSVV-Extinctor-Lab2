@@ -23,101 +23,102 @@ public class ServiceTest {
     // id == null, id == ""                         -> invalid
     @Test
     public void testSaveStudent_with_id_null() {
-        final var result = service.saveStudent(null, "name", 500, "email@email.com", "Costel");
-        Assertions.assertNull(result);
+        final var student = service.saveStudent(null, "name", 500, "email@email.com", "Costel");
+        Assertions.assertNull(student);
     }
 
     @Test
     public void testSaveStudent_with_id_empty() {
-        final var result = service.saveStudent("", "name", 500, "email@email.com", "Costel");
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("", "name", 500, "email@email.com", "Costel");
+        Assertions.assertNull(student);
     }
 
     // "Nume" EC
     // nume == null, nume == ""
     @Test
     public void testSaveStudent_with_nume_null() {
-        final var result = service.saveStudent("id", null, 500, "email@email.com", "Costel");
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("id", null, 500, "email@email.com", "Costel");
+        Assertions.assertNull(student);
     }
 
     @Test
     public void testSaveStudent_with_nume_empty() {
-        final var result = service.saveStudent("id", "", 500, "email@email.com", "Costel");
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("id", "", 500, "email@email.com", "Costel");
+        Assertions.assertNull(student);
     }
 
     // "Grupa" EC
     @Test
     public void testSaveStudent_with_group_below_111() {
-        final var result = service.saveStudent("id", "name", 1, "email@email.com", "Costel");
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("id", "name", 1, "email@email.com", "Costel");
+        Assertions.assertNull(student);
     }
 
     @Test
     public void testSaveStudent_with_group_above_937() {
-        final var result = service.saveStudent("id", "name", 1000, "email@email.com", "Costel");
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("id", "name", 1000, "email@email.com", "Costel");
+        Assertions.assertNull(student);
     }
 
     @Test
     public void testSaveStudent_valid() {
-        final var result = service.saveStudent("id", "name", 500, "email@email.com", "Costel");
+        final var student = service.saveStudent("id", "name", 500, "email@email.com", "Costel");
 
-        Assertions.assertNotNull(result);
-        Assertions.assertEquals("id", result.getID());
-        Assertions.assertEquals("name", result.getNume());
-        Assertions.assertEquals(500, result.getGrupa());
-        Assertions.assertEquals("email@email.com", result.getEmail());
-        Assertions.assertEquals("Costel", result.getProf());
+        Assertions.assertNotNull(student);
+        Assertions.assertEquals("id", student.getID());
+        Assertions.assertEquals("name", student.getNume());
+        Assertions.assertEquals(500, student.getGrupa());
+        Assertions.assertEquals("email@email.com", student.getEmail());
+        Assertions.assertEquals("Costel", student.getProf());
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // BVA
-    // 110  -> invalid
-    // 111  -> valid
-    // 937  -> valid
-    // 938  -> invalid
 
     @Test
     public void testSaveStudent_group_110() {
-        final var result = service.saveStudent("id", "name", 110, "email@email.com", "Costel");
-
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("id", "name", 110, "email@email.com", "Michael");
+        Assertions.assertNull(student);
     }
 
     @Test
     public void testSaveStudent_group_111() {
-        final var result = service.saveStudent("id", "name", 111, "email@email.com", "Costel");
+        final var student = service.saveStudent("id", "name", 111, "email@email.com", "Michael");
+        Assertions.assertEquals(111, student.getGrupa());
+    }
 
-        Assertions.assertEquals(111, result.getGrupa());
+    @Test
+    public void testSaveStudent_group_112() {
+        final var student = service.saveStudent("id", "name", 112, "email@email.com", "Michael");
+        Assertions.assertEquals(112, student.getGrupa());
+    }
+
+    @Test
+    public void testSaveStudent_group_936() {
+        final var student = service.saveStudent("id", "name", 936, "emai@email.com", "Michael");
+        Assertions.assertEquals(936, student.getGrupa());
     }
 
     @Test
     public void testSaveStudent_group_937() {
-        final var result = service.saveStudent("id", "name", 937, "email@email.com", "Costel");
-
-        Assertions.assertEquals(937, result.getGrupa());
+        final var student = service.saveStudent("id", "name", 937, "email@email.com", "Michael");
+        Assertions.assertEquals(937, student.getGrupa());
     }
 
     @Test
     public void testSaveStudent_group_938() {
-        final var result = service.saveStudent("id", "name", 938, "email@email.com", "Costel");
-
-        Assertions.assertNull(result);
+        final var student = service.saveStudent("id", "name", 938, "email@email.com", "Michael");
+        Assertions.assertNull(student);
     }
 
     @Test
     public void testSaveStudent_id_length_1() {
-        final var result = service.saveStudent("a", "name", 500, "email@email.com", "Costel");
-
-        Assertions.assertEquals("a", result.getID());
+        final var student = service.saveStudent("a", "name", 500, "email@email.com", "Michael");
+        Assertions.assertEquals("a", student.getID());
     }
 
     @Test
     public void testSaveStudent_name_length_1() {
-        final var result = service.saveStudent("id", " ", 500, "email@email.com", "Costel");
-
-        Assertions.assertEquals(" ", result.getNume());
+        final var student = service.saveStudent("id", " ", 500, "email@email.com", "Michael");
+        Assertions.assertEquals(" ", student.getNume());
     }
 }
