@@ -52,9 +52,6 @@ class TemaRepositoryTest {
         Assertions.assertEquals("Entitatea nu este valida! \n\r\n", baos.toString());
     }
 
-    @Test
-    public void test_whenDescrier
-
     private static Tema validTema() {
         return new Tema("id", "descriere", 14, 11);
     }
