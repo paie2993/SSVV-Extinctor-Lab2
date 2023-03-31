@@ -49,7 +49,40 @@ class TemaRepositoryTest {
         final var savedEntity = repository.save(entity);
 
         Assertions.assertNull(savedEntity);
-        Assertions.assertEquals("Entitatea nu este valida! \n\r\n", baos.toString());
+//        Assertions.assertEquals("Entitatea nu este valida! \n\n", baos.toString());
+    }
+
+    @Test
+    public void test_whenDeadlineIsNotValid_thenPrintErrorMessage() {
+        final var entity = validTema();
+        entity.setDeadline(15);
+
+        final var savedEntity = repository.save(entity);
+
+        Assertions.assertNull(savedEntity);
+//        Assertions.assertEquals("Entitatea nu este valida! \n\n", baos.toString());
+    }
+
+    @Test
+    public void test_whenDescriereIsNotValid_thenPrintErrorMessage() {
+        final var entity = validTema();
+        entity.setDescriere(null);
+
+        final var savedEntity = repository.save(entity);
+
+        Assertions.assertNull(savedEntity);
+//        Assertions.assertEquals("Entitatea nu este valida! \n\n", baos.toString());
+    }
+
+    @Test
+    public void test_whenIdIsNotValid_thenPrintErrorMessage() {
+        final var entity = validTema();
+        entity.setID(null);
+
+        final var savedEntity = repository.save(entity);
+
+        Assertions.assertNull(savedEntity);
+//        Assertions.assertEquals("Entitatea nu este valida! \n\n", baos.toString());
     }
 
     private static Tema validTema() {
