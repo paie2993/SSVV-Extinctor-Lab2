@@ -7,7 +7,7 @@ import org.ssvv.validation.TemaValidator;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-class TemaRepositoryTest {
+public class TemaRepositoryTest {
 
     private static final TemaValidator validatorTeme = new TemaValidator();
 
