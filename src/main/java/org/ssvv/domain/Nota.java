@@ -1,5 +1,8 @@
 package org.ssvv.domain;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Nota implements HasID<Pair<String, String>> {
     Pair<String, String> idNota;
     private double nota;
@@ -14,22 +17,38 @@ public class Nota implements HasID<Pair<String, String>> {
     }
 
     @Override
-    public Pair<String, String> getID() { return idNota; }
+    public Pair<String, String> getID() {
+        return idNota;
+    }
 
     @Override
-    public void setID(Pair<String, String> idNota) { this.idNota = idNota; }
+    public void setID(Pair<String, String> idNota) {
+        this.idNota = idNota;
+    }
 
-    public double getNota() { return nota; }
+    public double getNota() {
+        return nota;
+    }
 
-    public void setNota(double nota) { this.nota = nota; }
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
 
-    public int getSaptamanaPredare() { return saptamanaPredare; }
+    public int getSaptamanaPredare() {
+        return saptamanaPredare;
+    }
 
-    public void setSaptamanaPredare(int saptamanaPredare) { this.saptamanaPredare = saptamanaPredare; }
+    public void setSaptamanaPredare(int saptamanaPredare) {
+        this.saptamanaPredare = saptamanaPredare;
+    }
 
-    public String getFeedback() { return feedback; }
+    public String getFeedback() {
+        return feedback;
+    }
 
-    public void setFeedback(String feedback) { this.feedback = feedback; }
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
 
     @Override
     public String toString() {

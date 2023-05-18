@@ -6,9 +6,14 @@
         <Feedback>ok</Feedback>
     </nota>
     <nota IDStudent="1" IDTema="1">
-        <Nota>10.0</Nota>
-        <SaptamanaPredare>7</SaptamanaPredare>
-        <Feedback>done</Feedback>
+        <Nota>1.0</Nota>
+        <SaptamanaPredare>100</SaptamanaPredare>
+        <Feedback>yes</Feedback>
+    </nota>
+    <nota IDStudent="2" IDTema="2">
+        <Nota>5.0</Nota>
+        <SaptamanaPredare>10</SaptamanaPredare>
+        <Feedback/>
     </nota>
     <nota IDStudent="1" IDTema="2">
         <Nota>7.5</Nota>
